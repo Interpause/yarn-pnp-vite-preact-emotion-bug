@@ -1,0 +1,43 @@
+{
+  "name": "component-library",
+  "source": "./src/index.ts",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development tsup --watch",
+    "build": "cross-env NODE_ENV=production tsup",
+    "prepare": "npm run build",
+    "prepack": "yarn build"
+  },
+  "devDependencies": {
+    "@types/node": "^18.6.0",
+    "@types/react": ">=16.8.0",
+    "cross-env": "^7.0.0",
+    "react": ">=16.8.0",
+    "tsup": "^6.1.0",
+    "typescript": "^4.7.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  }
+}
